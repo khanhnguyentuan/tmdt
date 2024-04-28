@@ -53,17 +53,17 @@ const productSchema = mongoose.Schema(
       required: true,
       default: 0,
     },
-    active:{
+    active: {
       type: Boolean,
       required: true,
       default: true,
     },
-    discountID:{
+    discountID: {
       type: String,
       require: true,
       default: "",
     },
-    categoryId:{
+    categoryId: {
       type: String,
       require: true,
       default: "",

@@ -5,7 +5,7 @@ import { admin, protect } from "./../Middleware/AuthMiddleware.js";
 
 const categoriesRoute = express.Router();
 
-// GET ALL CATEEGORIES
+// GET ALL CATEGORIES
 categoriesRoute.get(
     "/",
     asyncHandler(async (req, res) => {

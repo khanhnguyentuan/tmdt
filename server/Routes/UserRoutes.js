@@ -3,6 +3,7 @@ import asyncHandler from "express-async-handler";
 import { protect, admin } from "../Middleware/AuthMiddleware.js";
 import generateToken from "../utils/generateToken.js";
 import User from "./../Models/UserModel.js";
+import UserController from "../controllers/userController.js";
 
 const userRouter = express.Router();
 
@@ -132,5 +133,7 @@ userRouter.get(
     res.json(users);
   })
 );
+
+userRouter.post('/register', UserController.handleRegister)
 
 export default userRouter;

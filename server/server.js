@@ -1,5 +1,6 @@
 import express from "express";
 import dotenv from "dotenv";
+import bodyParser from "body-parser"
 import connectDatabase from "./config/MongoDb.js";
 import ImportData from "./DataImport.js";
 import productRoute from "./Routes/ProductRoutes.js";
@@ -12,7 +13,9 @@ import categoriesRoute from "./Routes/categoriesRoutes.js";
 dotenv.config();
 connectDatabase();
 const app = express();
-app.use(express.json());
+// app.use(express.json());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // API
 app.use("/api/import", ImportData);
