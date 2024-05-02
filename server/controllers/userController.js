@@ -1,5 +1,6 @@
 import User from "../Models/UserModel.js";
 import { userRole } from "../utils/enum.js";
+import generateToken from "../utils/generateToken.js";
 import { errorReponse, reponseFunction } from "../utils/reponse.js"
 
 
@@ -21,15 +22,19 @@ class UserController {
             const user = await User.create({
                 name, username, email, password, telephone, sex, role
             });
-            
+
             if (role === userRole.chef) {
                 user.isChef = { description, certification }
-                console.log(user)
             }
             await user.save()
 
             return res.status(200).json({
-                message: 'Account registered successfully'
+                message: 'Account registered successfully',
+                data: {
+                    _id: user._id,
+                    role: user.role,
+                    token: generateToken(user._id)
+                }
             })
             // return reponseFunction('OK', 200, data)`
         } catch (e) {
