@@ -6,7 +6,6 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import HomeScreen from "./screens/HomeScreen";
 import SingleProduct from "./screens/SingleProduct";
 import Login from "./screens/Login";
-import Register from "./screens/Register";
 import CartScreen from "./screens/CartScreen";
 import ShippingScreen from "./screens/ShippingScreen";
 import ProfileScreen from "./screens/ProfileScreen";
@@ -16,6 +15,9 @@ import OrderScreen from "./screens/OrderScreen";
 import NotFound from "./screens/NotFound";
 import PrivateRouter from "./PrivateRouter";
 import ShopSectionCategory from "./components/homeComponents/ShopSectionByCategory";
+import StudentRegister from "./screens/Register_Student";
+import ChefRegister from "./screens/Register_Chef";
+import Register from "./screens/Register";
 
 const App = () => {
   return (
@@ -33,6 +35,8 @@ const App = () => {
         <Route path="/category/:id" component={ShopSectionCategory} />
         <Route path="/login" component={Login} />
         <Route path="/register" component={Register} />
+        <Route path="/student/register" component={StudentRegister} />
+        <Route path="/chef/register" component={ChefRegister} />
         <PrivateRouter path="/profile" component={ProfileScreen} />
         <Route path="/cart/:id?" component={CartScreen} />
         <PrivateRouter path="/shipping" component={ShippingScreen} />
