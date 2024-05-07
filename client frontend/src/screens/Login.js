@@ -39,8 +39,8 @@ const Login = ({ location, history }) => {
           onSubmit={submitHandler}
         >
           <input
-            type="email"
-            placeholder="Email"
+            type="text"
+            placeholder="Username"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
