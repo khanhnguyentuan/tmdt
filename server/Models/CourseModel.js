@@ -18,38 +18,47 @@ const reviewSchema = mongoose.Schema(
     }
 );
 
-const cookingCourseSchema = mongoose.Schema(
+const courseSchema = mongoose.Schema(
     {
-        name: { type: String, required: true },
+        name: { type: String, required: true }, //tên món ăn
         image: { type: String },
         video: { type: String },
-        description: { type: String, }, // mô tả món ăn
-        time: { type: String, }, // thời gian nấu món ăn
-        ingredient: [{ type: String, require: true }], // nguyên liệu
-        prepare: [{ type: String, require: true }], // sơ chế
-        make: [{ type: String, require: true }], // thực hiện món ăn
-        reviews: [reviewSchema],
+        time: { type: String, }, // thời lượng khóa học
+        description: { type: String, }, // mô tả khóa học 
         price: {
             type: Number,
             required: true,
             default: 0,
         },
+        commitment: { type: String }, // Cam kết
+        reviews: [reviewSchema],
         active: {
             type: Boolean,
             default: false,
         },
-        category: { // Thuộc loại nào trong 5 loại món ăn trên hệ thống
+        category: { // Thuộc loại nào trong 5 loại khóa học trên hệ thống
             type: String,
             require: true,
             enum: categoriesEnum,
             default: categoriesEnum.regionalFood,
         },
+        view: { type: Number, default: 0 },
+        user: {
+            type: mongoose.Schema.Types.ObjectId,
+            required: true,
+            ref: "User",
+        },
+        foodList: [{
+            type: mongoose.Schema.Types.ObjectId,
+            required: true,
+            ref: "Food",
+        }],
     },
     {
         timestamps: true,
     }
 );
 
-const CookingCourse = mongoose.model("CookingCourse", cookingCourseSchema);
+const Course = mongoose.model("Course", courseSchema);
 
-export default CookingCourse;
+export default Course;
