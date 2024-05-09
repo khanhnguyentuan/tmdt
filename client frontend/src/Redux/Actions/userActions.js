@@ -30,7 +30,7 @@ export const login = (email, password) => async (dispatch) => {
 
     const { data } = await axios.post(
       `/api/users/login`,
-      { email, password },
+      { username: email, password },
       config
     );
     dispatch({ type: USER_LOGIN_SUCCESS, payload: data });
@@ -56,7 +56,7 @@ export const logout = () => (dispatch) => {
 };
 
 // REGISTER
-export const register = (name, email, password, telephone) => async (dispatch) => {
+export const register = (name, username, email, password, telephone, sex, role, description, certification) => async (dispatch) => {
   try {
     dispatch({ type: USER_REGISTER_REQUEST });
 
@@ -67,21 +67,21 @@ export const register = (name, email, password, telephone) => async (dispatch) =
     };
 
     const { data } = await axios.post(
-      `/api/users`,
-      { name, email, password, telephone },
+      `/api/users/register`,
+      { name, username, email, password, telephone, sex, role, description, certification },
       config
     );
-    dispatch({ type: USER_REGISTER_SUCCESS, payload: data });
-    dispatch({ type: USER_LOGIN_SUCCESS, payload: data });
+    dispatch({ type: USER_REGISTER_SUCCESS, payload: data.data });
+    dispatch({ type: USER_LOGIN_SUCCESS, payload: data.data });
 
-    localStorage.setItem("userInfo", JSON.stringify(data));
+    localStorage.setItem("userInfo", JSON.stringify(data.data));
   } catch (error) {
     dispatch({
       type: USER_REGISTER_FAIL,
       payload:
         error.response && error.response.data.message
           ? error.response.data.message
-          : error.message,
+          : error.response.data,
     });
   }
 };

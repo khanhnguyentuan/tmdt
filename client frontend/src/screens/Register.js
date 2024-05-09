@@ -1,89 +1,19 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import Message from "../components/LoadingError/Error";
-import Loading from "../components/LoadingError/Loading";
-import { register } from "../Redux/Actions/userActions";
-import Header from "./../components/Header";
+import { Button, Typography } from "@mui/material"
+import { Link } from "react-router-dom/cjs/react-router-dom"
 
-const Register = ({ location, history }) => {
-    window.scrollTo(0, 0);
-    const [name, setName] = useState("");
-    const [username, setUsername] = useState("");
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [telephone, setTelephone] = useState("");
-    const [sex, setSex] = useState("");
 
-    const dispatch = useDispatch();
-    const redirect = location.search ? location.search.split("=")[1] : "/";
-
-    const userRegister = useSelector((state) => state.userRegister);
-    const { error, loading, userInfo } = userRegister;
-
-    useEffect(() => {
-        if (userInfo) {
-            history.push(redirect);
-        }
-    }, [userInfo, history, redirect]);
-
-    const submitHandler = (e) => {
-        e.preventDefault();
-        dispatch(register(name, email, password, telephone));
-    };
-
+const Register = () => {
     return (
         <>
-            <Header />
-            <div className="container d-flex flex-column justify-content-center align-items-center login-center">
-                {error && <Message variant="alert-danger">{error}</Message>}
-                {loading && <Loading />}
+            <Typography variant="h4">Đăng ký tham gia với chúng tôi</Typography>
+            <Typography variant="h5">Đã có tài khoản?</Typography>
+            <Typography variant="h5">Đăng nhập <Link to='/login'>Tại đây</Link></Typography>
 
-                <form
-                    className="Login col-md-8 col-lg-4 col-11"
-                    onSubmit={submitHandler}
-                >
-                    <input
-                        type="text"
-                        placeholder="Tên người dùng"
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
-                    />
-                    <input
-                        type="text"
-                        placeholder="Username"
-                        value={username}
-                        onChange={(e) => setUsername(e.target.value)}
-                    />
-                    <input
-                        type="email"
-                        placeholder="Email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                    />
-                    <input
-                        type="password"
-                        placeholder="Mật khẩu"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                    />
-                    <input
-                        type="text"
-                        placeholder="Số điện thoại"
-                        value={telephone}
-                        onChange={(e) => setTelephone(e.target.value)}
-                    />
-
-                    <button type="submit">Register</button>
-                    <p>
-                        <Link to={redirect ? `/login?redirect=${redirect}` : "/login"}>
-                            I Have Account <strong>Login</strong>
-                        </Link>
-                    </p>
-                </form>
-            </div>
+            <Button variant="contained"><Link to='/student/register'>Với tư cách học viên</Link></Button>
+            <Button variant="contained"><Link to='/chef/register'>Với tư cách người bán khóa học</Link></Button>
+            {/* <Link to='/chef/register'><Button variant="contained">Với tư cách người bán khóa học</Button></Link> */}
         </>
-    );
-};
+    )
+}
 
-export default Register;
+export default Register
