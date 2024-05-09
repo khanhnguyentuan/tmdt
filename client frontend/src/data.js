@@ -8,7 +8,7 @@ export const data = [
 
     {
         categoryName: 'Java',
-        courseName: 'Gia Bao',
+        courseName: 'Món ăn đường phố',
         metaDescription: 'fajshfkashklf',
         imageUrl: require('./images/img2.jpg')
     },
