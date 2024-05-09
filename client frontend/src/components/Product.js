@@ -1,7 +1,7 @@
 import React from "react";
 import {data} from '../data'
 import '../css/product.css'
-export default function Product{
+export default function Product() {
     return (
         <>
             <section className="product">
