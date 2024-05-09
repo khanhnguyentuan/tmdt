@@ -1,7 +1,7 @@
 export const data = [
     {
         categoryName: 'Java',
-        courseName: 'àkhaklshkla',
+        courseName: 'Món ăn cho mẹ và bé',
         metaDescription: 'áklfhkashfklsa',
         imageUrl: require('./images/img1.jpg')
     },
@@ -22,7 +22,7 @@ export const data = [
 
     {
         categoryName: 'Java',
-        courseName: 'hfkashkfhask',
+        courseName: 'Pha chế tổng hợp',
         metaDescription: 'skfklaskfhaskl',
         imageUrl: require('./images/img4.jpg')
     },
