@@ -143,7 +143,7 @@ const Header = () => {
             <div className="row">
               <div className="col-md-3 col-4 d-flex align-items-center">
                 <Link className="navbar-brand" to="/">
-                  <img alt="logo" src="/images/cookie.png" />
+                  <img alt="logo" src="/images/logo.png" />
                 </Link>
               </div>
               <div className="col-md-6 col-8 d-flex align-items-center">
