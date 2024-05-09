@@ -754,7 +754,7 @@ const products = [
     rating: 0
    },
    {
-    name: "ADIDAS ULTRA BOOST 4.0 HỒNG NỮ Rep 1:1",
+    name: "ADIDAS ULTRA BOOST 4.0 HỒNG NỮ",
     categoryId: "6266c18b9db6c1aed2bfa688",
     description: "ADIDAS ULTRA BOOST 4.0 HỒNG NỮ Là đôi giày giày ultra boost mới nhất giành cho chị em phụ nữ yêu thích chạy bộ, mẫu giày đặc biệt này hỗ trợ chạy bộ cực nhẹ với đế bost nén cực êm",
     price: 810000,
