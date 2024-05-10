@@ -61,7 +61,7 @@ class CourseController {
                     message: 'Missing input parameter!'
                 })
             }
-            const findCourse = await Course.findById(req.query._id)
+            const findCourse = await Course.findById(req.query._id).populate({ path: 'foodList' })
 
             return res.status(200).json({
                 message: 'OK',
@@ -86,7 +86,8 @@ class CourseController {
             const findCourse = await Course.findOne({
                 _id: req.query._id,
                 active: true
-            })
+            }).populate({ path: 'user', select: '_id name' })
+                .populate({ path: 'foodList' })
 
             return res.status(200).json({
                 message: 'OK',
@@ -158,6 +159,8 @@ class CourseController {
                 active: true
             }).skip(num * (page - 1)).limit(num)
                 .sort({ view: -1, updatedAt: -1 })
+                .populate({ path: 'user', select: '_id name' })
+                .select('-description -benefit -commitment')
 
             const count = await Course.countDocuments({
                 category: req.body.category,
