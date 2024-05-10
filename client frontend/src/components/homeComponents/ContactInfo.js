@@ -19,7 +19,7 @@ const ContactInfo = () => {
               <i className="fas fa-map-marker-alt"></i>
             </div>
             <h5>Trụ sở chính</h5>
-            <p>68 Trần Khánh Dư - P8 - Đà Lạt</p>
+            <p>Đại học Bách Khoa</p>
           </div>
         </div>
         <div className="col-12 col-md-4 contact-Box">
