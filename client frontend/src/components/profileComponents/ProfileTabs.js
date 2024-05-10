@@ -112,7 +112,7 @@ const ProfileTabs = () => {
           sx={{
             margin: "30px auto",
             display: "block",
-            maxWidth: { xs: "70vw", sm: "50vw" },
+            maxWidth: { xs: "70vw", sm: "50vw", md: "30vw" },
           }}
           alt={user && user.certification ? 'Bằng cấp của đầu bếp' : ''}
           src={user && user.certification ? user.certification : ''}
