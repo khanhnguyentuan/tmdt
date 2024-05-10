@@ -35,6 +35,7 @@ const ChefRegister = ({ location, history }) => {
         dispatch(register(name, username, email, password, telephone, sex, 'Đầu bếp', description, certification));
     };
 
+    // Xử lí upload hình ảnh ở đây nhớ thêm state để lưu chuỗi mã hóa hình ảnh (certification)
     const handleChangeImage = async (e) => {
         const base64 = await convertToBase64(e);
         setCertification(base64);
@@ -88,6 +89,7 @@ const ChefRegister = ({ location, history }) => {
                         value={description}
                         onChange={(e) => setDescription(e.target.value)}
                     />
+                    {/* Upload hình ảnh ở đây */}
                     <label>Bằng cấp</label>
                     <input
                         type="file"

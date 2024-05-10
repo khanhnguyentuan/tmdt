@@ -83,8 +83,10 @@ userRouter.get(
         email: user.email,
         telephone: user.telephone,
         avatar: user.avatar,
-        isAdmin: user.isAdmin,
+        role: user.role,
         createdAt: user.createdAt,
+        description: user.isChef && user.isChef.description ? user.isChef.description : '',
+        certification: user.isChef && user.isChef.certification ? user.isChef.certification : ''
       });
     } else {
       res.status(404);

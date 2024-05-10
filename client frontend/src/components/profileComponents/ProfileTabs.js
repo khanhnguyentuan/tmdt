@@ -5,6 +5,7 @@ import Toast from "./../LoadingError/Toast";
 import Loading from "./../LoadingError/Loading";
 import { toast } from "react-toastify";
 import { updateUserProfile } from "../../Redux/Actions/userActions";
+import { Box } from "@mui/material";
 
 const ProfileTabs = () => {
   const [name, setName] = useState("");
@@ -30,6 +31,7 @@ const ProfileTabs = () => {
 
   useEffect(() => {
     if (user) {
+      console.log(user)
       setName(user.name);
       setEmail(user.email);
     }
@@ -103,6 +105,19 @@ const ProfileTabs = () => {
             />
           </div>
         </div>
+
+        {/* Hiển thị ảnh ở đây nhớ import Box từ MUI */}
+        <Box
+          component="img"
+          sx={{
+            margin: "30px auto",
+            display: "block",
+            maxWidth: { xs: "70vw", sm: "50vw" },
+          }}
+          alt={user && user.certification ? 'Bằng cấp của đầu bếp' : ''}
+          src={user && user.certification ? user.certification : ''}
+        />
+
         <button type="submit">Chỉnh sửa thông tin</button>
       </form>
     </>
