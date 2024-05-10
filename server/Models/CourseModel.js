@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { categoriesEnum } from "../utils/enum";
+import { categoriesEnum } from "../utils/enum.js";
 
 
 // Đánh giá về món ăn
@@ -20,7 +20,7 @@ const reviewSchema = mongoose.Schema(
 
 const courseSchema = mongoose.Schema(
     {
-        name: { type: String, required: true }, //tên món ăn
+        name: { type: String, required: true }, //tên khóa học
         image: { type: String },
         video: { type: String },
         time: { type: String, }, // thời lượng khóa học
@@ -30,7 +30,8 @@ const courseSchema = mongoose.Schema(
             required: true,
             default: 0,
         },
-        commitment: { type: String }, // Cam kết
+        benefit: [{ type: String }],
+        commitment: [{ type: String }], // Cam kết
         reviews: [reviewSchema],
         active: {
             type: Boolean,

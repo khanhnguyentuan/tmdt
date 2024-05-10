@@ -31,14 +31,14 @@ const foodSchema = mongoose.Schema(
         reviews: [reviewSchema],
         active: {
             type: Boolean,
-            default: false,
+            default: true,
         },
         kind: { // Phân loại theo pp chế biến: Xào, luộc...
             type: String,
             enum: foodKindEnum,
             default: foodKindEnum.other
         },
-        isFree: { type: Boolean, require: true },
+        isFree: { type: Boolean, require: true, default: false },
         view: { type: Number, default: 0 },
         user: {
             type: mongoose.Schema.Types.ObjectId,
