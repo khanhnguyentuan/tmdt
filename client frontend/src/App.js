@@ -18,6 +18,7 @@ import ShopSectionCategory from "./components/homeComponents/ShopSectionByCatego
 import StudentRegister from "./screens/Register_Student";
 import ChefRegister from "./screens/Register_Chef";
 import Register from "./screens/Register";
+import FoodRegister from "./screens/FoodRegister";
 
 const App = () => {
   return (
@@ -42,6 +43,7 @@ const App = () => {
         <PrivateRouter path="/shipping" component={ShippingScreen} />
         <PrivateRouter path="/payment" component={PaymentScreen} />
         <PrivateRouter path="/placeorder" component={PlaceOrderScreen} />
+        <PrivateRouter path="/food-register" component={FoodRegister} />
         <PrivateRouter path="/order/:id" component={OrderScreen} />
         <Route path="*" component={NotFound} />
       </Switch>
