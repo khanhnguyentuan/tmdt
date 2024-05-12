@@ -1,14 +1,21 @@
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
+import { useDispatch } from "react-redux";
 import Header from "../components/Header";
 import { Button, Checkbox, Form, Input, InputNumber, Select, Upload } from 'antd';
 import { InboxOutlined, CompassFilled } from '@ant-design/icons';
+import { convertToBase64 } from "../utils/convert";
 
 const FoodCourtRegister = () => {
     const [form] = Form.useForm();
-    
+    const [certification, setCertification] = useState("");
     const handleRegisterFoodCourt = useCallback((values) => {
         console.log('values', values);
     }, [])
+
+    const handleChangeImage = async (e) => {
+        const base64 = await convertToBase64(e);
+        setCertification(base64);
+    }
 
     return (
         <>
@@ -122,7 +129,7 @@ const FoodCourtRegister = () => {
                                 <Upload.Dragger
                                     listType="picture-card"
                                     // fileList={fileList}
-                                    // onChange={handleUploadCoverImg}
+                                    onChange={handleChangeImage}
                                     
                                 >
                                     <p className="ant-upload-drag-icon">
