@@ -128,7 +128,6 @@ const FoodCourtRegister = () => {
                             >
                                 <Upload.Dragger
                                     listType="picture-card"
-                                    // fileList={fileList}
                                     onChange={handleChangeImage}
                                     
                                 >
